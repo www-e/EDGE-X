@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="styleme.css">
+</head>
+<body>
+    
+    <header>
+        <a href="index.html" class="back-button">Back</a> 
+        <h1>About Me</h1>
+    </header>
+    <section class="profile-image">
+        <img src="me.jpg" alt="Your Profile">
+    </section>
+    <section class="bio">
+        <h2>My Journey</h2>
+        <p>
+            Dedicated and results-oriented Architectural and Interior Designer with 3+ years of experience in creating innovative and functional designs for residential, commercial, and hospitality projects. Proven ability to collaborate effectively with clients, architects, and contractors to deliver high-quality projects within budget and on schedule. Skilled in AutoCAD, Revit, SketchUp, and Adobe Creative Suite. Passionate about transforming spaces into aesthetically pleasing and functional environments that exceed client expectations.
+        </p>
+        <button class="learn-more-btn">Learn More</button>
+    </section>
+    <section class="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li>Architectural design and planning</li>
+            <li>Interior design and decoration</li>
+            <li>AutoCAD, Revit, SketchUp, and Adobe Creative Suite</li>
+            <li>Client communication and relationship building</li>
+            <li>Project management and coordination</li>
+            <li>Building codes and regulations</li>
+        </ul>
+    </section>
+    <section class="contact">
+        <h2>Contact Me</h2>
+        <ul>
+            <li><a href="https://wa.me/+201061761392?text=urlencodedtext">Whtasapp 1</a></li>
+            <li><a href="https://wa.me/+201154688628?text=urlencodedtext">Whtasapp 2</a></li>
+            <li><a href="yousefalsayed118@email.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/yousef-alsayed-225b59318/">LinkedIn</a></li>
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; 2024 EDGE X - All rights reserved.</p>
+    </footer>
+    <script>
+        const starField = document.getElementById('stars');
+      
+        for (let i = 0; i < 100; i++) { // Number of stars
+          const star = document.createElement('div');
+          star.className = 'star';
+          
+          const size = Math.random() * 3 + 1; // Random size between 1px and 4px
+          star.style.width = `${size}px`;
+          star.style.height = `${size}px`;
+          
+          // Random initial position
+          star.style.left = `${Math.random() * 100}vw`;
+          star.style.top = `${Math.random() * 100}vh`;
+      
+          // Set random movement animation
+          const duration = Math.random() * 5 + 3; // Random duration between 3s and 8s
+          star.style.animation = `twinkle ${duration}s infinite`;
+          
+          starField.appendChild(star);
+        }
+      </script>
+      
+</body>
+</html>

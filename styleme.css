@@ -1,0 +1,89 @@
+/* General Styles for About Me Page */
+.back-button {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    background-color: #4b7e74; /* Button color */
+    color: #fff; /* Text color */
+    padding: 10px 15px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Font size */
+    transition: background-color 0.3s; /* Transition effect */
+}
+body {
+
+    background-color: rgb(23, 23, 23);
+}
+h1 {color: aliceblue;}
+.back-button:hover {
+    background-color: #3a6a5c; /* Darker shade on hover */
+}
+.bio, .skills, .contact {
+    margin: 20px auto;
+    max-width: 800px;
+    background: rgba(81, 106, 111, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    transition: background-color 0.3s; /* Transition effect */
+    color: #fff;
+}
+h1 {text-align: center;}
+h2 {
+    color: #4b7e74; /* Match your site theme */
+}
+
+/* Profile Image Styling */
+.profile-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Space above the image */
+}
+
+.profile-image img {
+    width: 150px; /* Adjust as needed */
+    height: 150px; /* Adjust as needed */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image covers the area */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adds shadow for depth */
+}
+
+/* Biography Section Styling */
+.learn-more-btn {
+    background-color: #4b7e74;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.learn-more-btn:hover {
+    background-color: #3a6d65;
+}
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8); /* Glowing effect */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glow */
+    animation: twinkle 1s infinite; /* Default twinkle effect */
+  }
+  
+  /* Twinkling Effect */
+  @keyframes twinkle {
+    0% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(-10px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.5; }
+  }
+  
+  /* Responsive Mobile and Tablet Styles */
+  @media (max-width: 768px) {
+    .image-container img {
+      max-width: 100%;
+    }
+  }
+  footer{text-align: center;}
+ 

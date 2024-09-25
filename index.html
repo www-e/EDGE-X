@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDGE X</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styleme.css">
+  <link rel="stylesheet" href="style.sass">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <style>
+    /* CSS for section line */
+    .section-divider {
+      width: 100%;
+      height: 2px;
+      background-color: #ccc;
+      margin: 20px 0;
+    }
+    
+    /* Image title */
+    .image-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Gallery styles */
+    .image-container {
+      text-align: center;
+      margin: 20px;
+    }
+
+    /* Image styles */
+    .image-container img {
+      width: 300px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .blackout {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: white;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .blackout.show {
+      display: flex;
+    }
+  </style>
+  <script>
+    const timeLimit = 2 * 24 * 60 * 60 * 1000; // 2 days in milliseconds
+    const loadTime = new Date().getTime();
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll('.image-container img');
+      const overlay = document.querySelector('.overlay');
+      const overlayImage = document.querySelector('.overlay img');
+      const blackout = document.querySelector('.blackout');
+      const blackoutButton = document.querySelector('.blackout-message button');
+
+      images.forEach(img => {
+        img.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+        });
+
+        img.addEventListener('click', () => {
+          overlayImage.src = img.src;
+          overlay.classList.add('show');
+          document.querySelector('.overlay .watermark').style.display = 'flex';
+        });
+      });
+
+      overlay.addEventListener('click', () => {
+        overlay.classList.remove('show');
+        overlayImage.src = "";
+      });
+
+      document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+      });
+
+      setInterval(() => {
+        const currentTime = new Date().getTime();
+        if (currentTime - loadTime > timeLimit) {
+          images.forEach(img => {
+            img.src = "";
+            img.alt = "Image viewing time has expired.";
+          });
+        }
+      }, 1000);
+
+      window.addEventListener('keyup', (e) => {
+        if (e.key === 'PrintScreen') {
+          triggerBlackout();
+        }
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey && e.shiftKey && e.key === 'S') || (e.key === 'PrintScreen')) {
+          triggerBlackout();
+          e.preventDefault();
+        }
+      });
+
+      window.addEventListener('blur', () => {
+        triggerBlackout();
+      });
+
+      // Block screenshot via hardware buttons
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+          triggerBlackout();
+        }
+      });
+
+      function triggerBlackout() {
+        blackout.classList.add('show');
+        blackoutButton.addEventListener('click', () => {
+          location.reload();
+        });
+      }
+    });
+    ////////////////////////////////////////////////////////
+   
+/////////////////////////////////////////////////////////
+  </script>
+</head>
+<body>
+  <a href="about.html" class="about-button">!</a>
+
+  <div id="starry-night"></div>
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+
+  <h1>EDGE X</h1>
+  <h2>Jericho Project</h2>
+
+  <!-- (BBQ 2nd View)(BackSitting)Gallery with image placeholders and section dividers -->
+  <div id="gallery">
+    <!-- Section 1 -->
+    <div class="image-container">
+      <img src="Pool1.png" alt="Pool1">
+      <div class="image-title">pool1</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="BackSitting.png" alt="BackSitting">
+      <div class="image-title">BackSitting</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="Pool2.png" alt="Pool2">
+      <div class="image-title">pool2</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="section-divider"></div>
+  
+    <!-- Section 2 -->
+    <div class="image-container">
+      <img src="BBQ and Bath.png" alt="BBQ and Bath">
+      <div class="image-title">BBQ and Bath</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="BBQ Day.png" alt="BBQ Day">
+      <div class="image-title">BBQ Day</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="BBQ Night.png" alt="BBQ Night">
+      <div class="image-title">BBQ Night</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="section-divider"></div>
+  
+    <!-- Section 3 -->
+    <div class="image-container">
+      <img src="Entrance Night.png" alt="Entrance Night">
+      <div class="image-title">Entrance Night</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="Facade.png" alt="Facade">
+      <div class="image-title">Facade</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="Garage out Day.png" alt="Garage out Day">
+      <div class="image-title">Garage out Day</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="section-divider"></div>
+  
+    <!-- Section 4 -->
+    <div class="image-container">
+      <img src="Garage out Night.png" alt="Garage out Night">
+      <div class="image-title">Garage out Night</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="GarageNight.png" alt="GarageNight">
+      <div class="image-title">GarageNight</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="BackSitting.png" alt="BackSitting">
+      <div class="image-title">BackSitting</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="section-divider"></div>
+  
+    <!-- Section 5 -->
+    <div class="image-container">
+      <img src="BBQ 2nd View.png" alt="BBQ 2nd View">
+      <div class="image-title">BBQ 2nd View</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="sideprofile-enhanced.png" alt="sideprofile-enhanced">
+      <div class="image-title">sideprofile</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="Sitting2Day.png" alt="Sitting2Day">
+      <div class="image-title">Sitting2Day</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="section-divider"></div>
+  
+    <!-- Section 6 -->
+    <div class="image-container">
+      <img src="Sitting2Mirror.png" alt="Sitting2Mirror">
+      <div class="image-title">Sitting2Mirror</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="Sitting2Night.png" alt="Sitting2Night">
+      <div class="image-title">Sitting2Night</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="image-container">
+      <img src="Sitting3.png" alt="Sitting3">
+      <div class="image-title">Sitting3</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="section-divider"></div>
+  
+    <!-- Section 7 -->
+    <div class="image-container">
+      <img src="2d front.png" alt="2d front">
+      <div class="image-title">2d front</div>
+      <div class="watermark">EDGE X</div>
+    </div>
+    <div class="section-divider"></div>
+  </div>
+  
+  <!-- Full-screen view -->
+  <div class="overlay">
+    <div class="watermark">EDGE X</div>
+    <img src="" alt="Full view">
+  </div>
+  
+
+  <!-- Blackout screen for screenshot attempts -->
+  <div class="blackout">
+    <div class="blackout-message">
+      <p>Screenshot not allowed!</p>
+      <button>Reload to continue</button>
+    </div>
+  </div>
+
+  <script>
+    
+    const starField = document.getElementById('stars');
+
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+
+      const size = Math.random() * 3 + 1;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
+
+      const duration = Math.random() * 5 + 3;
+      star.style.animation = `twinkle ${duration}s infinite`;
+
+      starField.appendChild(star);
+    }
+  </script>
+  <footer>
+    <p>&copy; 2024 EDGE X - All rights reserved.</p>
+  </footer>
+</body>
+</html>
